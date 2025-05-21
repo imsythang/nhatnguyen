@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Terminal id="00000011">
+
+        <!-- Đây là thông tin của máy ATM
+        ID unique-->
+        <TermIP>10.1.12.15</TermIP> <!-- Địa chỉ IP-->
+        <branchNumber>1234</branchNumber> <!-- Mã chi nhánh-->
+        <TerminalType>Auto Banking</TerminalType> <!-- Loại máy ATM-->
+        <autorestartmode>1</autorestartmode> <!-- Có chế độ tự động khởi động khi mà gặp lỗi hay hông-->
+    </Terminal>
+</Config>
