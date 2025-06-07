@@ -14,6 +14,8 @@ public:
   void AddTermTail(term*);
   void Print() const;
   int evaluate(int x);
+  Polynominal* add(const Polynominal* p) const;
+  Polynominal* multiple(const Polynominal* p) const;
 };
 
 #endif // POLYNOMIAL_H
