@@ -18,8 +18,8 @@ void LinkedList::InsertFirst(Element *e) {
   if (this->head == nullptr)
     this->head = this->tail = e;
   else {
-    e->Setpointer(this->head); // step 1
-    this->head = e;            // step 2
+    e->Setpointer(this->head);
+    this->head = e;
   }
   this->nNum++;
 }
@@ -27,8 +27,8 @@ void LinkedList::InsertTail(Element *e) {
   if (this->head == nullptr)
     this->head = this->tail = e;
   else {
-    this->tail->Setpointer(e); // step 1
-    this->tail = e;            // step 2
+    this->tail->Setpointer(e);
+    this->tail = e;          
   }
   this->nNum++;
 }
@@ -110,11 +110,7 @@ int LinkedList::CountPrime() {
 }
 bool LinkedList::InsertAfterP(Element *p, Element *e) {
   if (this->head == nullptr)
-    return false; // List is empty
-                  // 1 2 p 3 4
-                  // 1 2 p e 3 4
-                  // 1 2 3 p
-                  // 1 2 3 p e
+    return false;
   if (p == nullptr || e == nullptr)
     return false;
   e->Setpointer(p->Getpointer());
