@@ -1,2 +1,2 @@
-g++ -o main main.cpp LinkedList.cpp Stack1.cpp Element.cpp Queue1.cpp
+g++ -o main main.cpp LinkedList.cpp Element.cpp Stack.cpp Queue.cpp
 ./main
