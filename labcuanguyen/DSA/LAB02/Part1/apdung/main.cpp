@@ -1,12 +1,8 @@
-
-
-
-#include <iostream>
-#include "LinkedList.h"
+#include "linkedlist.h"
 #include "Queue.h"
 #include "Stack.h"
+#include <iostream>
 using namespace std;
-
 
 void convertToBinary(int num) {
   Stack1 stack1;

@@ -7,9 +7,7 @@ Stack::Stack() {
 
 Stack::~Stack() { delete linkedlist; }
 
-void Stack::printStack() {
-  linkedlist->Travel();
-}
+void Stack::printStack() { linkedlist->Travel(); }
 
 bool Stack::isEmpty() const { return (linkedlist->GetHead() == nullptr); }
 
@@ -33,6 +31,7 @@ int Stack1::PopStack() {
   return data;
 }
 
+// Lớp Stack2 (Thêm cuối, xóa cuối)
 Stack2::Stack2() : Stack() {}
 
 void Stack2::PushStack(int data) {

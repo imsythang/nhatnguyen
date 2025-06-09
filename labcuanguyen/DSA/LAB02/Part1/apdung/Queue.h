@@ -1,7 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "LinkedList.h"
+#include "linkedlist.h"
 #include <iostream>
 using namespace std;
 
@@ -15,11 +15,11 @@ public:
   Queue();          // Constructor
   virtual ~Queue(); // Destructor
 
-  void printQueue(); // In danh sách
-  bool isEmpty();    // Kiểm tra queue có rỗng không
+  void printQueue();    // In danh sách
+  bool isEmpty() const; // Kiểm tra queue có rỗng không
 
   // Các phương thức EnQueue và DeQueue sẽ được định nghĩa lại trong các lớp con
-  virtual void EnQueue(int value) = 0;
+  virtual void EnQueue(int data) = 0;
   virtual int DeQueue() = 0;
 };
 

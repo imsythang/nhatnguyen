@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "LinkedList.h"
+#include "linkedlist.h"
 #include <iostream>
 using namespace std;
 
@@ -14,7 +14,7 @@ public:
   Stack();          // Constructor
   virtual ~Stack(); // Destructor
 
-  void printStack();  
+  void printStack();
   bool isEmpty() const;
 
   virtual void PushStack(int data) = 0;
@@ -27,6 +27,7 @@ public:
   Stack1();
   void PushStack(int data) override;
   int PopStack() override;
+};
 
 // Stack2 (Thêm cuối, xóa cuối)
 class Stack2 : public Stack {

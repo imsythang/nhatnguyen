@@ -1,4 +1,3 @@
-
 #include "Queue.h"
 
 Queue::Queue() {
@@ -8,12 +7,9 @@ Queue::Queue() {
 
 Queue::~Queue() { delete linkedlist; }
 
-void Queue::printQueue() {
-  linkedlist->Travel();
-}
+void Queue::printQueue() { linkedlist->Travel(); }
 
-bool Queue::isEmpty() { return (linkedlist->GetHead() == nullptr); }
-
+bool Queue::isEmpty() const { return (linkedlist->GetHead() == nullptr); }
 
 Queue1::Queue1() : Queue() {}
 

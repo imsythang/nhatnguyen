@@ -1,6 +1,5 @@
-
 /// File: Element.cpp
-#include "Element.h"
+#include "element.h"
 // constructor - khởi tạo
 Element::Element() {
   this->data = 0;
@@ -14,4 +13,3 @@ Element::Element(int data) {
 Element::~Element() {
   // dtor
 }
-
