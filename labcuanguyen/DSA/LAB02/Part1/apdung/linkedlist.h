@@ -1,37 +1,36 @@
-/// File: linkedlist.h
+/// File: LinkedList.h
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-#include "element.h"
+#include "Element.h"
 
-class linkedlist {
+class LinkedList {
 private:
-  element *head;
-  element *tail;
+  Element *head;
+  Element *tail;
   int nNum;
 
 public:
-  linkedlist();
-  virtual ~linkedlist();
-  element *Gethead() { return head; }
-  void Sethead(element *val) { head = val; }
-  element *Gettail() { return tail; }
-  void Settail(element *val) { tail = val; }
-  void InsertFirst(element *);
-  void InsertTail(element *);
+  LinkedList();
+  virtual ~LinkedList();
+  Element *GetHead() { return head; }
+  void Sethead(Element *val) { head = val; }
+  Element *GetTail() { return tail; }
+  void SetTail(Element *val) { tail = val; }
+  void InsertFirst(Element *);
+  void InsertTail(Element *);
   bool DeleteFirst();
   void Travel();
   void RemoveAll();
   int SumList();
   int MaxList();
   int CountPrime();
-  bool InsertAfterP(element*, element*);
+  bool InsertAfterP(Element*, Element*);
   bool DeleteTail();
-  bool DeleteElement(element*);
+  bool DeleteElement(Element*);
   int CountValueX(int);
   bool Exist(int);
-  void InsertTailNotDuplicate(element*);
-  void SplitList(int, linkedlist&, linkedlist&);
-
+  void InsertTailNotDuplicate(Element*);
+  void SplitList(int, LinkedList&, LinkedList&);
 };
 
 #endif // LINKEDLIST_H

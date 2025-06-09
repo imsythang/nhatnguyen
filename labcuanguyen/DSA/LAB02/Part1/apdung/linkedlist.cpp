@@ -1,19 +1,19 @@
-// File: linkedlist.cpp
+// File: LinkedList.cpp
 
-#include "linkedlist.h"
+#include "LinkedList.h"
 #include <iostream>
 using namespace std;
-linkedlist::linkedlist() {
+LinkedList::LinkedList() {
   // ctor
   this->head = nullptr;
   this->tail = nullptr;
   this->nNum = 0;
 }
 
-linkedlist::~linkedlist() {
+LinkedList::~LinkedList() {
   // dtor
 }
-void linkedlist::InsertFirst(element *e) {
+void LinkedList::InsertFirst(Element *e) {
   if (this->head == nullptr)
     this->head = this->tail = e;
   else {
@@ -22,7 +22,7 @@ void linkedlist::InsertFirst(element *e) {
   }
   this->nNum++;
 }
-void linkedlist::InsertTail(element *e) {
+void LinkedList::InsertTail(Element *e) {
   if (this->head == nullptr)
     this->head = this->tail = e;
   else {
@@ -31,66 +31,66 @@ void linkedlist::InsertTail(element *e) {
   }
   this->nNum++;
 }
-void linkedlist::Travel() {
-  element *p = this->head;
+void LinkedList::Travel() {
+  Element *p = this->head;
   while (p != nullptr) {
-    cout << p->Getdata() << "\t";
+    cout << p->GetData() << "\t";
     p = p->Getpointer();
   }
 }
-bool linkedlist::DeleteFirst() {
+bool LinkedList::DeleteFirst() {
   if (this->head == nullptr)
     return false;
   else {
-    element *p = this->head;
+    Element *p = this->head;
     this->head = this->head->Getpointer();
     delete p;
     return true;
   }
 }
-void linkedlist::RemoveAll(){
+void LinkedList::RemoveAll(){
   // 10p -> 8next -> 9
   // 8 -> 9
   // 9
   // nullptr nullptr
-  element* p = this->head;
+  Element* p = this->head;
   while(p != nullptr)
   {
-    element* next = p->Getpointer();
+    Element* next = p->Getpointer();
     delete p;
     p = next;
   }
   head = tail = nullptr;
   this->nNum = 0;
 }
-int linkedlist::SumList()
+int LinkedList::SumList()
 {
   int sum = 0;
-  element *p = this->head;
+  Element *p = this->head;
   while (p != nullptr) {
-    sum += p->Getdata();
+    sum += p->GetData();
     p = p->Getpointer();
   }
   return sum;
 }
 
-int linkedlist::MaxList()
+int LinkedList::MaxList()
 {
   if (head == nullptr) return -1; // or some sentinel value
-  int max = head->Getdata();
-  element *p = head->Getpointer();
+  int max = head->GetData();
+  Element *p = head->Getpointer();
   while (p != nullptr) {
-    if (p->Getdata() > max) max = p->Getdata();
+    if (p->GetData() > max) max = p->GetData();
     p = p->Getpointer();
   }
   return max;
 }
-int linkedlist::CountPrime()
+int LinkedList::CountPrime()
 {
   int count = 0;
-  element *p = this->head;
+  Element *p = this->head;
   while (p != nullptr) {
-    int data = p->Getdata();
+    int data = p->GetData();
     if (data < 2) {
       p = p->Getpointer();
       continue;
@@ -107,7 +107,7 @@ int linkedlist::CountPrime()
   }
   return count;
 }
-bool linkedlist::InsertAfterP(element* p, element *e) {
+bool LinkedList::InsertAfterP(Element* p, Element *e) {
   if (this->head == nullptr) return false; // List is empty
 // 1 2 p 3 4
 // 1 2 p e 3 4
@@ -118,26 +118,26 @@ bool linkedlist::InsertAfterP(element* p, element *e) {
   // Set: Chinh sua, get: nhan gia tri
   p->Setpointer(e);
   if(p == this->tail) {
-    this->tail = e; // Update tail if p was the last element
+    this->tail = e; // Update tail if p was the last Element
   }
   nNum++;
   return true;
 }
-bool linkedlist::DeleteTail()
+bool LinkedList::DeleteTail()
 {
   // 1 2 3p 4tail || delete p; tail =
   // bieens ddos -> next = tail
   // tail = bien do
   if (this->head == nullptr) return false; // List is empty
-  if (this->head == this->tail) { // Only one element
+  if (this->head == this->tail) { // Only one Element
     delete this->head;
     this->head = this->tail = nullptr;
   } else {
-    element *p = this->head;
+    Element *p = this->head;
     while (p->Getpointer() != this->tail) {
       p = p->Getpointer();
     }
-    element* temp = this->tail; // Save the current tail
+    Element* temp = this->tail; // Save the current tail
     this->tail = p;
     this->tail->Setpointer(nullptr);
     delete temp;
@@ -145,14 +145,14 @@ bool linkedlist::DeleteTail()
   nNum--;
   return true;
 }
-bool linkedlist::DeleteElement(element *e) {
-  if (this->head == nullptr || e == nullptr) return false; // List is empty or element is null
-  if (this->head == e) { // If the element to delete is the head
+bool LinkedList::DeleteElement(Element *e) {
+  if (this->head == nullptr || e == nullptr) return false; // List is empty or Element is null
+  if (this->head == e) { // If the Element to delete is the head
     return DeleteFirst();
   }
   // 3head 4p 5 6 7 tail
   // 3 4 6 7
-  element *p = this->head;
+  Element *p = this->head;
   while (p->Getpointer() != nullptr && p->Getpointer() != e) {
     p = p->Getpointer();
   }
@@ -166,11 +166,11 @@ bool linkedlist::DeleteElement(element *e) {
   nNum--;
   return true;
 }
-int linkedlist::CountValueX(int x) {
+int LinkedList::CountValueX(int x) {
   int count = 0;
-  element *p = this->head;
+  Element *p = this->head;
   while (p != nullptr) {
-    if (p->Getdata() == x) count++;
+    if (p->GetData() == x) count++;
     p = p->Getpointer();
   }
   return count;
@@ -178,34 +178,35 @@ int linkedlist::CountValueX(int x) {
 // 3 4 5 6 7 4 8 5
 // Nếu data chưa tồn tại -> thêm vào
 // Nếu data đã tồn tại -> không thêm vào -> Skip
-bool linkedlist::Exist(int x) {
-  element *p = this->head;
+bool LinkedList::Exist(int x) {
+  Element *p = this->head;
   while (p != nullptr) {
-    if (p->Getdata() == x) return true; // Found the value
+    if (p->GetData() == x) return true; // Found the value
     p = p->Getpointer();
   }
   return false; // Value not found
 }
-void linkedlist::InsertTailNotDuplicate(element* e) {
-  if(Exist(e->Getdata())) {
+void LinkedList::InsertTailNotDuplicate(Element* e) {
+  if(Exist(e->GetData())) {
     return;
   }
   InsertTail(e);
 }
-void linkedlist::SplitList(int x, linkedlist& list1, linkedlist& list2) {
-  element *p = this->head;
+void LinkedList::SplitList(int x, LinkedList& list1, LinkedList& list2) {
+  Element *p = this->head;
   while (p != nullptr) {
-    if (p->Getdata() < x) {
+    if (p->GetData() < x) {
       // 1 3 5 2 4 6
       // x = 5
-      element* newElement = new element(p->Getdata());
+      Element* newElement = new Element(p->GetData());
       list1.InsertTail(newElement);
     } else {
-      element* newElement = new element(p->Getdata());
+      Element* newElement = new Element(p->GetData());
       list2.InsertTail(newElement);
     }
     p = p->Getpointer();
   }
 }
 // an -> a0
-// 0 1 2 ... n => (n - 0 + 1) = n + 1 
+// 0 1 2 ... n => (n - 0 + 1) = n + 1
+

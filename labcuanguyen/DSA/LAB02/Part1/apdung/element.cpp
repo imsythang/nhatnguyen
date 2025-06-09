@@ -1,17 +1,17 @@
 
-/// File: element.cpp
-#include "element.h"
+/// File: Element.cpp
+#include "Element.h"
 // constructor - khởi tạo
-element::element() {
+Element::Element() {
   this->data = 0;
   this->pointer = nullptr;
 }
-element::element(int data) {
+Element::Element(int data) {
   this->data = data;
   this->pointer = nullptr;
 }
 // destructor - hàm huỷ - giải phóng bộ nhớ
-element::~element() {
+Element::~Element() {
   // dtor
 }
 
